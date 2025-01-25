@@ -1,1 +1,316 @@
-honey.com
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عالم العسل الملكي | Premium Honey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+
+        :root {
+            --honey-primary: #FFB800;
+            --honey-secondary: #FF9100;
+            --honey-dark: #4A3500;
+        }
+
+        * {
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .premium-glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .honey-flow {
+            background: linear-gradient(120deg, #FFB800, #FF9100, #FFB800);
+            background-size: 200% 200%;
+            animation: honeyFlow 5s ease infinite;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 184, 0, 0.2);
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(255, 184, 0, 0.2);
+        }
+
+        .honey-text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hexagon-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        @keyframes honeyFlow {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .custom-shape {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+        }
+
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255,255,255,0) 0%,
+                rgba(255,255,255,0.1) 50%,
+                rgba(255,255,255,0) 100%
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100">
+    <!-- Decorative Background Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-amber-300/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-orange-300/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 left-1/2 w-96 h-96 bg-yellow-300/20 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Premium Header -->
+    <header class="premium-glass sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-6 space-x-reverse">
+                    <div class="relative w-16 h-16">
+                        <div class="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-600 rounded-full animate-pulse"></div>
+                        <img src="logo.png" alt="Logo" class="relative w-full h-full object-contain">
+                    </div>
+                    <h1 class="text-3xl font-black text-amber-900 honey-text-shadow">عالم العسل الملكي</h1>
+                </div>
+                
+                <div class="hidden lg:flex space-x-8 space-x-reverse">
+                    <NavLink>الرئيسية</NavLink>
+                    <NavLink>منتجاتنا</NavLink>
+                    <NavLink>المميزات</NavLink>
+                    <NavLink>تواصل معنا</NavLink>
+                </div>
+
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button class="relative group">
+                        <div class="p-3 premium-glass rounded-full">
+                            <i class="fas fa-shopping-cart text-amber-900"></i>
+                        </div>
+                        <span class="absolute -top-2 -right-2 w-6 h-6 flex items-center justify-center bg-red-500 text-white rounded-full text-sm">0</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen py-20 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <h2 class="text-6xl font-black text-amber-900 mb-6 leading-tight honey-text-shadow">
+                        اكتشف سحر
+                        <span class="text-amber-500">العسل الطبيعي</span>
+                        النقي
+                    </h2>
+                    <p class="text-xl text-amber-800 mb-8 leading-relaxed">
+                        نقدم لك أجود أنواع العسل الطبيعي، محصود بعناية من أفضل المناحل العالمية
+                    </p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <button class="honey-flow text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                            تسوق الآن
+                        </button>
+                        <button class="premium-glass text-amber-900 px-8 py-4 rounded-xl font-bold text-lg">
+                            تعرف علينا
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 relative" data-aos="fade-left">
+                    <div class="floating-element">
+                        <img src="premium-honey.png" alt="Premium Honey" class="w-full max-w-2xl mx-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-amber-500/30 to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 relative custom-shape bg-gradient-to-b from-amber-100 to-amber-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-amber-900 mb-16" data-aos="fade-up">
+                لماذا تختار عسلنا؟
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <FeatureCard
+                    icon="leaf"
+                    title="طبيعي 100%"
+                    description="عسل نقي خالي من الإضافات"
+                />
+                <!-- Add more feature cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Showcase -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-amber-900 mb-16" data-aos="fade-up">
+                منتجاتنا المميزة
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="products-grid">
+                <!-- Products will be inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 parallax-bg" style="background-image: url('honey-bg.jpg')">
+        <div class="premium-glass py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-white mb-16">
+                    آراء عملائنا
+                </h2>
+                <!-- Add testimonials carousel -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Footer -->
+    <footer class="bg-amber-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <!-- Add footer content -->
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Component Templates
+        function NavLink({ children }) {
+            return `
+                <a href="#" class="relative text-amber-900 hover:text-amber-600 transition-colors duration-300 font-medium">
+                    ${children}
+                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-amber-500 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                </a>
+            `;
+        }
+
+        function FeatureCard({ icon, title, description }) {
+            return `
+                <div class="premium-glass p-8 rounded-2xl text-center transform hover:scale-105 transition-all duration-300" data-aos="fade-up">
+                    <div class="w-20 h-20 mx-auto mb-6 honey-flow rounded-xl flex items-center justify-center">
+                        <i class="fas fa-${icon} text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-amber-900 mb-4">${title}</h3>
+                    <p class="text-amber-800">${description}</p>
+                </div>
+            `;
+        }
+
+        // Products data and rendering
+        const products = [
+            {
+                id: 1,
+                name: "عسل السدر الملكي الفاخر",
+                price: 599,
+                image: "sidr-honey.png",
+                description: "عسل سدر فاخر من أجود المناحل العالمية",
+                rating: 5,
+                features: ["طبيعي 100%", "معبأ يدوياً", "غني بالمعادن"]
+            },
+            // Add more products
+        ];
+
+        function renderProducts() {
+            const productsGrid = document.getElementById('products-grid');
+            productsGrid.innerHTML = products.map(product => `
+                <div class="product-card rounded-2xl overflow-hidden" data-aos="fade-up">
+                    <div class="relative">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-72 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-amber-900/50 to-transparent"></div>
+                        <div class="absolute top-4 right-4 premium-glass px-4 py-2 rounded-full text-white">
+                            ${product.rating} ⭐
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-amber-900 mb-2">${product.name}</h3>
+                        <p class="text-amber-800 mb-4">${product.description}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${product.features.map(feature => `
+                                <span class="premium-glass px-3 py-1 rounded-full text-sm text-amber-900">
+                                    ${feature}
+                                </span>
+                            `).join('')}
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-3xl font-bold text-amber-600">${product.price} ريال</span>
+                            <button onclick="addToCart(${product.id})" 
+                                    class="honey-flow text-white px-6 py-3 rounded-xl font-bold shine-effect">
+                                إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize
+        window.onload = () => {
+            renderProducts();
+        };
+    </script>
+</body>
+</html>
